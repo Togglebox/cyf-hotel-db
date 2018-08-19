@@ -1,22 +1,4 @@
-CREATE TABLE IF NOT EXISTS customers (
-  ID INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT(16),
-  first_name TEXT(64) NOT NULL,
-  surname TEXT (64) NOT NULL,
-  email TEXT (64)
-);
 
-
-INSERT INTO customers (
-  title, first_name, surname, email
-) VALUES (
-  'Mr',
-  'John',
-  'Dove',
-  'john.doe@domain.com'
-);
-
-// insert schema.sql from slack
 
 PRAGMA foreign_keys = ON;
 DROP table IF EXISTS customers;
@@ -95,8 +77,8 @@ INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUE
 INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (2, 3, '2017/07/11', 80);
 INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (3, 4, '2018/08/14', 50.50);
 INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (4, 1, '2018/08/15', 50.50);
-INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (6, 5, '2018/08/19', 80);
-INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (5, 6, '2018/08/19', 80);
+INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (5, 5, '2018/08/19', 80);
+INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (6, 6, '2018/08/19', 80);
 INSERT INTO invoices (reservation_id, total, surcharges, invoice_date_time, paid) VALUES (1, 700, 50, '2017/08/01', 1);
 INSERT INTO invoices (reservation_id, total, surcharges, invoice_date_time, paid) VALUES (2, 1000, 550, '2017/08/08', 0);
 INSERT INTO invoices (reservation_id, total, surcharges, invoice_date_time, paid) VALUES (3, 200, 50, '2018/08/25', 1);

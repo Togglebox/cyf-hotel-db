@@ -8,6 +8,20 @@ const router = express.Router();
 
 // get '/reservations-and-invoices/'
 // TODO: add code here
+router.get('/reservations-and-invoices', function(req, res) {
+  var sql = 'SELECT * FROM reservations JOIN invoices ON reservations.id = invoices.reservation_id;'
+
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+        console.log('ERROR fetching from the database:', err);
+        return;
+    }
+    console.log('Request succeeded, new data fetched', rows);
+    res.status(200).json({
+      reservations: rows
+    });
+  });
+})
 
 router.delete('/reservations/:id', function(req, res) {
   const id = req.params.id;
